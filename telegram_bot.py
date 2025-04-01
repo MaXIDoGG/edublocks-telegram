@@ -1,21 +1,28 @@
 import requests
 
-class Bot:
+class TelegramBot:
     def __init__(self, token):
         self.token = token
-        self.base_url = f"https://api.telegram.org/bot{self.token}/"
-
+        self.api_url = f"https://api.telegram.org/bot{self.token}/"
+    
     def send_message(self, chat_id, text):
-        url = f"{self.base_url}sendMessage"
+        method = "sendMessage"
         params = {
-            "chat_id": chat_id,
-            "text": text,
-            "parse_mode": "HTML"  # Можно добавить поддержку Markdown/HTML
+            'chat_id': chat_id,
+            'text': text
         }
-        try:
-            response = requests.get(url, params=params)
-            response.raise_for_status()  # Проверка на ошибки
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"Ошибка при отправке сообщения: {e}")
-            return None
+        response = requests.get(self.api_url + method, params=params)
+        return response.json()
+
+# Глобальный объект для упрощения использования в блоках
+bot_instance = None
+
+def create_bot(token):
+    global bot_instance
+    bot_instance = TelegramBot(token)
+    return bot_instance
+
+def send_message(chat_id, text):
+    if bot_instance:
+        return bot_instance.send_message(chat_id, text)
+    return {"ok": False, "error": "Bot not initialized"}
