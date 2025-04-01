@@ -1,3 +1,5 @@
+const telegramColor = "#0088cc";
+
 Blockly.Blocks['import_telegram'] = {
 	init: function () {
 		this.appendDummyInput()
