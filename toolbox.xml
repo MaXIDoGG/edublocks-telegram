@@ -1,0 +1,22 @@
+<category name="Telegram Bot" colour="#0088cc" css-icon="customIcon fad fa-paper-plane">
+    <block type="import_telegram"></block>
+    <block type="telegram_bot_init">
+        <value name="token">
+            <shadow type="inline_text">
+                <field name="value">"YOUR_BOT_TOKEN"</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="telegram_send_message">
+        <value name="chat_id">
+            <shadow type="inline_number">
+                <field name="value">123456789</field>
+            </shadow>
+        </value>
+        <value name="text">
+            <shadow type="inline_text">
+                <field name="value">"Hello from EduBlocks!"</field>
+            </shadow>
+        </value>
+    </block>
+</category>

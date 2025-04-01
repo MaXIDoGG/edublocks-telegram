@@ -1,0 +1,7 @@
+{
+	"mode": "python",
+	"code": [
+		"telegram_bot.py"
+	],
+	"interpreter": "py"
+}
