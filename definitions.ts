@@ -11,7 +11,7 @@ Blockly.Blocks['test_block'] = {
 Blockly.Blocks['import_telegram'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("import telegram");
+			.appendField("import requests");
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour(telegramColor);

@@ -1,11 +1,11 @@
 Blockly.Python['import_telegram'] = function (block) {
-	return 'import telegram\n';
+	return 'import requests\n\n';
 };
 
 Blockly.Python['telegram_bot_init'] = function (block) {
 	const botVar = Blockly.Python.nameDB_.getName(block.getFieldValue('bot'), Blockly.VARIABLE_CATEGORY_NAME);
 	const token = Blockly.Python.valueToCode(block, 'token', Blockly.Python.ORDER_ATOMIC);
-	return `${botVar} = telegram.Bot(${token})\n`;
+	return `${botVar} = Bot(${token})\n`;
 };
 
 Blockly.Python['telegram_send_message'] = function (block) {
