@@ -3,10 +3,11 @@ const telegramColor = "#0088cc";
 Blockly.Blocks['import_telegram'] = {
 	init: function () {
 		this.appendDummyInput()
-			.appendField("from telegram_bot import create_bot, send_message");
+			.appendField("Initialize Telegram Bot");
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
 		this.setColour(telegramColor);
+		this.setTooltip("Добавляет необходимый код для работы с Telegram API");
 	}
 };
 
